@@ -1,13 +1,19 @@
 var express = require('express');
-var app=express();
-
-var todoroutes = require("./routes/index");
 var bodyParser = require('body-parser');
+var app=express();
+var ejs=require('ejs');
+app.set('view engine', 'ejs');
+var todoroutes = require("./routes/index");
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
+app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/views'));
+//res.send("this is appjs route");
 app.get('/',function(req,res){
-res.send("this is appjs route");
+res.render('index.html');
 });
 
 

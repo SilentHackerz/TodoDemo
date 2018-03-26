@@ -58,7 +58,7 @@ router.put('/:todoId',function(req,res){
 //delete
 router.delete('/:todoId',function(req,res){
 
-    db.Todo.remove({_id:req.params.todoId})
+    db.Todo.remove({name:req.params.todoId})
 
         .then(function(){
         res.json({message : "deleted "})
